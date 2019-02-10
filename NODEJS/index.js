@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.post('/text_search/', async (req, res) => {
     const query = {
         location: [req.body.coords.lat, req.body.coords.lng],
-        // radius: 1000,
+        radius: 1000,
         type: req.body.interest,
     };
     const placesArray = [];
@@ -26,7 +26,6 @@ app.post('/text_search/', async (req, res) => {
                     name: element.name,
                 });
             });
-            console.log(placesArray);
             res.send({placesArray});
         }
     });
@@ -46,12 +45,12 @@ app.post('/directions/', async (req, res) => {
         } else {
             resultValues = response.json.routes;
             await resultValues.forEach((element) => {
-                const decoded = decodeLine(element.overview_polyline.points)
+                const decoded = decodeLine(element.overview_polyline.points);
+                const routes = decoded.map(r => {return {latitude: r[0], longitude: r[1]}});
                 directionsArray.push({
-                    coordsArray: decoded,
+                    coordsArray: routes,
                 });
             });
-            console.log(directionsArray);
             res.send({directionsArray});
         }
     });
