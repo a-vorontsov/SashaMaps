@@ -1,4 +1,4 @@
-package com.hacksoton;
+package com.sashamaps;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "HackSoton";
+        return "sashamaps";
     }
 }
