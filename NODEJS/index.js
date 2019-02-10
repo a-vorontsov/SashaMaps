@@ -16,7 +16,7 @@ app.post('/text_search/', async (req, res) => {
     const placesArray = [];
     await googleMapsClient.placesNearby(query, async (error, response) => {
         if (error) {
-           console.error(error); 
+           console.error(error);
            res.send("404");
         } else {
             resultValues = response.json.results;
@@ -57,7 +57,72 @@ app.post('/directions/', async (req, res) => {
     });
 });
 app.get('/types/', async (req, res) => {
-    const types = ["amusement_park", "art_gallery", "atm", "aquarium", "bar", "cafe", "casino", "jewelry_store", "movie_theater", "museum", "night_club", "park", "restaurant", "shopping_mall", "spa", "zoo"];
+    const types = [
+        {
+            type: "amusement_park",
+            name: "Amusement Park"
+        },
+        {
+            type: "art_gallery",
+            name: "Art Gallery"
+        },
+        {
+            type: "atm",
+            name: "ATM"
+        },
+        {
+            type: "aquarium",
+            name: "Aquarium"
+        },
+        {
+            type: "bar",
+            name: "Bar"
+        },
+        {
+            type: "cafe",
+            name: "Cafe"
+        },
+        {
+            type: "casino",
+            name: "Casino"
+        },
+        {
+            type: "jewelry_store",
+            name: "Jewellry Store"
+        },
+        {
+            type: "movie_theater",
+            name: "Movie Theatre"
+        },
+        {
+            type: "museum",
+            name: "Museum"
+        },
+        {
+            type: "night_club",
+            name: "Night Club"
+        },
+        {
+            type: "park",
+            name: "Park"
+        },
+        {
+            type: "restaurant",
+            name: "Restaurant"
+        },
+        {
+            type: "shopping_mall",
+            name: "Shopping Mall"
+        },
+        {
+            type: "spa",
+            name: "Spa"
+        },
+        {
+            type: "zoo",
+            name: "Zoo"
+        },
+    ];
     res.send({types});
 })
 app.listen(port, () => console.log(`App listening on port ${port}!`));
