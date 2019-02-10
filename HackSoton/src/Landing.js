@@ -22,7 +22,8 @@ export default class LandingScreen extends React.Component {
           <Text style={styles.welcome}>SashaMaps</Text>
         </View>
         <View>
-          <Text style={styles.upArrow}>&and;</Text>
+          <Text style={styles.upArrow}>&uarr;</Text>
+          <Text style={styles.arrowText}>slide up to begin</Text>
         </View>
       </GestureRecognizer>
     );
@@ -48,6 +49,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     opacity: 0.5,
     bottom: 30,
-    color: 'white'
+    color: 'white',
+    fontFamily: 'Quicksand-Regular',
+  },
+  arrowText: {
+    fontSize: 32,
+    textAlign: 'center',
+    opacity: 0.5,
+    bottom: 30,
+    color: 'white',
+    fontFamily: 'Quicksand-Regular',
   }
 });

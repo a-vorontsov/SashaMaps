@@ -1,5 +1,5 @@
 import {createStackNavigator, createAppContainer} from 'react-navigation';
-import MapScreen from './MapScreen';
+import Maps from './Maps';
 import HomeScreen from './HomeScreen';
 import LandingScreen from './Landing';
 
@@ -7,7 +7,7 @@ const MainNavigator = createStackNavigator(
   {
     Landing: {screen: LandingScreen},
     Home: {screen: HomeScreen},
-    Map: {screen: MapScreen}
+    Map: {screen: Maps}
   },
   {
     initialRouteName: "Landing",
