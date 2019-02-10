@@ -35,7 +35,7 @@ export default class Maps extends React.Component<any, any> {
   }
   async componentDidMount() {
     const interest = this.props.navigation.getParam("type", "museum");
-    const response = await fetch('http://10.9.240.72:3000/text_search/', {
+    const response = await fetch('http://35.246.66.42:3000/text_search/', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -53,7 +53,7 @@ export default class Maps extends React.Component<any, any> {
     await this.setState({markers: resJson.placesArray});
   }
   async handlePress(destination) {
-    const response = await fetch('http://10.9.240.72:3000/directions/', {
+    const response = await fetch('http://35.246.66.42:3000/directions/', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

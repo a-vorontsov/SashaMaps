@@ -16,7 +16,7 @@ export default class HomeScreen extends React.Component<any, any> {
     }
   }
   async componentWillMount() {
-    const response = await fetch('http://10.9.240.72:3000/types/', {
+    const response = await fetch('http://35.246.66.42:3000/types/', {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
