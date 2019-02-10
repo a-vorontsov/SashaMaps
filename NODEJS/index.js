@@ -88,7 +88,7 @@ app.get('/types/', async (req, res) => {
         },
         {
             type: "jewelry_store",
-            name: "Jewellry Store"
+            name: "Jewellery Store"
         },
         {
             type: "movie_theater",
