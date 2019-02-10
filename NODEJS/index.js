@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.post('/text_search/', async (req, res) => {
     const query = {
         location: [req.body.coords.lat, req.body.coords.lng],
-        radius: 100,
+        // radius: 1000,
         type: req.body.interest,
     };
     const placesArray = [];
