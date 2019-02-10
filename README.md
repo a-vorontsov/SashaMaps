@@ -8,4 +8,4 @@ The inspiration of the app name is from an inside joke within our development te
 A mobile app that utilizes the Google Cloud Platform Google Maps Places API and Google Maps Android SDK. Front end was created via React-Native whilst back end was done via NodeJS.
 
 ## Try It Out
-Download the APK [here](https://drive.google.com/file/d/14Uza-w_TfF1T2uza7sobXkjWdysUfAja/view?usp=sharing), install and enjoy!
+Download the APK [here](https://drive.google.com/uc?authuser=0&id=1vgDEj3A4LcsIdC3wFSb3yKeuZkZYKGMe&export=download), install and enjoy!

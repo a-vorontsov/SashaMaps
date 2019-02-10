@@ -4,7 +4,8 @@ import {
   StyleSheet,
   Text,
   Button,
-  View
+  View,
+  Alert
 } from 'react-native';
 import MapView, {
   Marker,
@@ -14,7 +15,7 @@ import MapView, {
 
 const screen = Dimensions.get('window');
 const ASPECT_RATIO = screen.width/screen.height;
-const LATITUDE_DELTA = 0.015;
+const LATITUDE_DELTA = 0.025;
 let LATITUDE;
 let LONGITUDE;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
@@ -34,6 +35,7 @@ export default class Maps extends React.Component<any, any> {
     this.handlePress = this.handlePress.bind(this);
   }
   async componentDidMount() {
+    const {navigate} = this.props.navigation;
     const interest = this.props.navigation.getParam("type", "museum");
     const response = await fetch('http://35.246.66.42:3000/text_search/', {
       method: 'POST',
@@ -50,7 +52,25 @@ export default class Maps extends React.Component<any, any> {
       })
     });
     const resJson = await response.json();
-    await this.setState({markers: resJson.placesArray});
+    if (resJson.placesArray.length < 1) {
+      Alert.alert(
+        'Oh no!',
+        "Unfortunately, we weren't able to find anything within 3km of your location.",
+        [
+          {
+            text: 'Stay here',
+            onPress: () => {},
+            style: 'cancel'
+          },
+          {
+            text: 'Go back',
+            onPress: () => navigate("Home"),
+          }
+        ]
+      );
+    } else {
+      await this.setState({markers: resJson.placesArray});
+    }
   }
   async handlePress(destination) {
     const response = await fetch('http://35.246.66.42:3000/directions/', {

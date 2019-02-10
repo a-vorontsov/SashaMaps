@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.post('/text_search/', async (req, res) => {
     const query = {
         location: [req.body.coords.lat, req.body.coords.lng],
-        radius: 1000,
+        radius: 3000,
         type: req.body.interest,
     };
     const placesArray = [];
@@ -124,4 +124,4 @@ app.get('/types/', async (req, res) => {
     ];
     res.send({types});
 })
-app.listen(port, () => console.log(`App listening on port ${port}!`));
+app.listen(port, '0.0.0.0', () => console.log(`App listening on port ${port}!`));
