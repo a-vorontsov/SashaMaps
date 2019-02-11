@@ -12,6 +12,7 @@ app.post('/text_search/', async (req, res) => {
         location: [req.body.coords.lat, req.body.coords.lng],
         radius: 3000,
         type: req.body.interest,
+        rankby: "distance",
     };
     const placesArray = [];
     await googleMapsClient.placesNearby(query, async (error, response) => {
@@ -20,6 +21,7 @@ app.post('/text_search/', async (req, res) => {
            res.send("404");
         } else {
             resultValues = response.json.results;
+            console.log(results);
             await resultValues.forEach((element) => {
                 placesArray.push({
                     location: element.geometry.location,
