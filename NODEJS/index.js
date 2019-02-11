@@ -20,7 +20,6 @@ app.post('/text_search/', async (req, res) => {
            res.send("404");
         } else {
             resultValues = response.json.results;
-            console.log(results);
             await resultValues.forEach((element) => {
                 placesArray.push({
                     location: element.geometry.location,
