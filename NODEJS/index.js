@@ -35,6 +35,7 @@ app.post('/directions/', async (req, res) => {
         origin: req.body.origin,
         destination: req.body.destination,
         units: "metric",
+        mode: "walking",
         optimize: req.body.optimize,
     }
     await googleMapsClient.directions(query, async (error, response) => {
