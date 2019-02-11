@@ -125,4 +125,4 @@ app.get('/types/', async (req, res) => {
     ];
     res.send({types});
 })
-app.listen(port, '0.0.0.0', () => console.log(`App listening on port ${port}!`));
+app.listen(port, "0.0.0.0", () => console.log(`App listening on port ${port}!`));
