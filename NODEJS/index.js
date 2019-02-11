@@ -10,7 +10,6 @@ app.use(bodyParser.json());
 app.post('/text_search/', async (req, res) => {
     const query = {
         location: [req.body.coords.lat, req.body.coords.lng],
-        radius: 3000,
         type: req.body.interest,
         rankby: "distance",
     };
